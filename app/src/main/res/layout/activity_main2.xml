@@ -6,13 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VideoPlayer"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="356dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/player_view"
+        app:resize_mode="fit"
+        app:hide_on_touch="true"
+        app:show_timeout="5000"
+        app:rewind_increment="10000"
+        app:fastforward_increment="10000"
+        app:use_controller="true"
+        android:background="@android:color/background_dark"
+        app:player_layout_id="@layout/exo_simple_player_view"
+        app:controller_layout_id="@layout/custom_controller"/>
+
+    <ProgressBar
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"/>
+
+
+
 </RelativeLayout>
