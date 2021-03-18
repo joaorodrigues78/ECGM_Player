@@ -3,6 +3,10 @@ package com.example.ecgm_player;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +37,7 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity implements SensorEventListener {
 
     // inicializar Variaveis
     PlayerView playerView;
@@ -45,6 +49,9 @@ public class MainActivity2 extends AppCompatActivity {
     String videourl2 = "https://www.epe.edu.pt/site/wp-content/uploads/2019/04/video.mp4";
     String videourl3 = "https://www.epe.edu.pt/site/wp-content/uploads/2019/04/video.mp4";
 
+    //sensor
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
 
 
     @Override
@@ -58,6 +65,14 @@ public class MainActivity2 extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        // Se o sensor não existir
+        /*if (mSensor == null){
+            finish();
+        }*/
 
         // url do video
         Uri videoUrl = Uri.parse(videourl2);
@@ -185,11 +200,34 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.values[0] < mSensor.getMaximumRange()){
+            simpleExoPlayer.setPlayWhenReady(false);
+            simpleExoPlayer.getPlaybackState();
+        } else {
+            simpleExoPlayer.setPlayWhenReady(true);
+            simpleExoPlayer.getPlaybackState();
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         // Para o video quando estiver pronto
         simpleExoPlayer.setPlayWhenReady(false);
         simpleExoPlayer.getPlaybackState();
+
+        mSensorManager.unregisterListener(this);
     }
 
     @Override
@@ -199,4 +237,7 @@ public class MainActivity2 extends AppCompatActivity {
         simpleExoPlayer.setPlayWhenReady(true);
         simpleExoPlayer.getPlaybackState();
     }
+
+
+
 }
