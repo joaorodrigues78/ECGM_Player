@@ -49,7 +49,7 @@ public class MainActivity2 extends AppCompatActivity implements SensorEventListe
     String videourl2 = "https://www.epe.edu.pt/site/wp-content/uploads/2019/04/video.mp4";
     String videourl3 = "https://www.epe.edu.pt/site/wp-content/uploads/2019/04/video.mp4";
 
-    //sensor
+    //sensor proximidade
     private SensorManager mSensorManager;
     private Sensor mSensor;
 
