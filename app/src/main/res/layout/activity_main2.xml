@@ -21,10 +21,10 @@
         app:controller_layout_id="@layout/custom_controller"/>
 
     <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/progress_bar"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 
 

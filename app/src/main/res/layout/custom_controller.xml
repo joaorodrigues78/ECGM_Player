@@ -61,13 +61,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/exo_position"
-                android:textColor="#2DC4ED"/>
+                android:textColor="#FF0000"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/"
-                android:textColor="#2DC4ED"
+                android:textColor="#FF0000"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"/>
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/exo_duration"
-                android:textColor="#2DC4ED"
+                android:textColor="#FF0000"
                 />
 
             <ImageView
@@ -94,7 +94,7 @@
             android:layout_marginTop="8dp"
             app:unplayed_color="#45424E"
             app:buffered_color="#95989F"
-            app:played_color="#2DC4ED"
+            app:played_color="#FF0000"
             />
 
     </LinearLayout>

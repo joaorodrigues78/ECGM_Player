@@ -11,9 +11,20 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo_ecgmplayer"
-        android:layout_marginTop="40sp"
+        app:srcCompat="@drawable/benfica"
+        android:layout_marginTop="30sp"
         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Benfica Media Sense"
+        android:textColor="#2B2B2B"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/button_menu"
@@ -21,9 +32,9 @@
         android:layout_height="80dp"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="60sp"
         android:text="Play"
-        app:backgroundTint="#106FB5" />
+        app:backgroundTint="#FF0000" />
 
     <Button
         android:id="@+id/button_sair"
@@ -31,8 +42,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_menu"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="10sp"
         android:text="Sair"
-        app:backgroundTint="#106FB5" />
+        app:backgroundTint="#FF0303" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="182dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/button_sair"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ecgm2"
+        android:layout_marginTop="60sp"/>
+
+
 
 </RelativeLayout>
